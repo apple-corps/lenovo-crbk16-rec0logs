@@ -1,0 +1,910 @@
+[    0.000000] Linux version 5.10.180-22633-g1d2f89719839 (chrome-bot@chromeos-release-builder-us-east1-d-x32-7-kkwc) (Chromium OS 17.0_pre496208_p20230501-r6 clang version 17.0.0 (/mnt/host/source/src/third_party/llvm-project 98f5a340975bc00197c57e39eb4ca26e2da0e8a2), LLD 17.0.0) #3 SMP PREEMPT Fri Aug 11 00:16:22 PDT 2023
+[    0.000000] Command line: cros_secure console= loglevel=7 init=/sbin/init cros_secure drm.trace=0x106 root=/dev/dm-0 rootwait ro dm_verity.error_behavior=3 dm_verity.max_bios=-1 dm_verity.dev_wait=1  noinitrd panic=60 cros_recovery kern_b_hash=de00d655613975824ae0ea15aa6908f75280b0078f6ed5e6eba2d13a5d233cf0 vt.global_cursor_default=0 kern_guid=55925989-77ff-604c-86e8-2f783e782239 add_efi_memmap boot=local noresume noswap i915.modeset=1 ramoops.ecc=1 tpm_tis.force=0 intel_pmc_core.warn_on_s0ix_failures=1 i915.enable_guc=3 i915.enable_dc=4 xdomain=0 swiotlb=65536 intel_iommu=on i915.enable_psr=1 usb-storage.quirks=13fe:6500:u   
+[    0.000000] x86/split lock detection: warning about user-space split_locks
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x200: 'Protection Keys User registers'
+[    0.000000] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+[    0.000000] x86/fpu: xstate_offset[9]:  832, xstate_sizes[9]:    8
+[    0.000000] x86/fpu: Enabled xstate features 0x207, context size is 840 bytes, using 'compacted' format.
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x0000000000000fff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000001000-0x000000000009ffff] usable
+[    0.000000] BIOS-e820: [mem 0x00000000000a0000-0x00000000000fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x0000000076870fff] usable
+[    0.000000] BIOS-e820: [mem 0x0000000076871000-0x00000000803fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000c0000000-0x00000000cfffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000f8000000-0x00000000f9ffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fb000000-0x00000000fb000fff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fe000000-0x00000000fe00ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fed80000-0x00000000fed87fff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fed90000-0x00000000fed92fff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000feda0000-0x00000000feda1fff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fedc0000-0x00000000feddffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000100000000-0x000000027fbfffff] usable
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] SMBIOS 3.0 present.
+[    0.000000] DMI: Google Taniks/Taniks, BIOS Google_Taniks.14505.165.0 07/13/2022
+[    0.000000] tsc: Detected 2500.000 MHz processor
+[    0.000000] tsc: Detected 2496.000 MHz TSC
+[    0.000004] e820: update [mem 0x00000000-0x00000fff] usable ==> reserved
+[    0.000006] e820: remove [mem 0x000a0000-0x000fffff] usable
+[    0.000011] last_pfn = 0x27fc00 max_arch_pfn = 0x400000000
+[    0.000013] MTRR default type: uncachable
+[    0.000014] MTRR fixed ranges enabled:
+[    0.000015]   00000-9FFFF write-back
+[    0.000016]   A0000-BFFFF uncachable
+[    0.000016]   C0000-FFFFF write-back
+[    0.000016] MTRR variable ranges enabled:
+[    0.000018]   0 base 0000000000 mask 7F80000000 write-back
+[    0.000018]   1 base 0077000000 mask 7FFF000000 uncachable
+[    0.000019]   2 base 0078000000 mask 7FF8000000 uncachable
+[    0.000019]   3 base 0090000000 mask 7FF0000000 write-combining
+[    0.000020]   4 base 0100000000 mask 7F00000000 write-back
+[    0.000020]   5 base 0200000000 mask 7F80000000 write-back
+[    0.000021]   6 disabled
+[    0.000021]   7 disabled
+[    0.000021]   8 disabled
+[    0.000021]   9 disabled
+[    0.000446] x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[    0.001171] last_pfn = 0x76871 max_arch_pfn = 0x400000000
+[    0.005558] check: Scanning 1 areas for low memory corruption
+[    0.005564] Using GB pages for direct mapping
+[    0.005639] ACPI: Early table checksum verification disabled
+[    0.005642] ACPI: RSDP 0x00000000000F0000 000024 (v02 COREv4)
+[    0.005645] ACPI: XSDT 0x00000000768820E0 000064 (v01 COREv4 COREBOOT 00000000 CORE 20210331)
+[    0.005650] ACPI: FACP 0x0000000076887230 000114 (v06 COREv4 COREBOOT 00000000 CORE 20210331)
+[    0.005654] ACPI: DSDT 0x0000000076882280 004FA1 (v02 COREv4 COREBOOT 20110725 INTL 20210331)
+[    0.005657] ACPI: FACS 0x0000000076882240 000040
+[    0.005659] ACPI: FACS 0x0000000076882240 000040
+[    0.005661] ACPI: SSDT 0x0000000076887350 004284 (v02 COREv4 COREBOOT 0000002A CORE 20210331)
+[    0.005663] ACPI: MCFG 0x000000007688B5E0 00003C (v01 COREv4 COREBOOT 00000000 CORE 20210331)
+[    0.005666] ACPI: TPM2 0x000000007688B620 00004C (v04 COREv4 COREBOOT 00000000 CORE 20210331)
+[    0.005668] ACPI: APIC 0x000000007688B670 000092 (v03 COREv4 COREBOOT 00000000 CORE 20210331)
+[    0.005670] ACPI: DMAR 0x000000007688B710 000088 (v01 COREv4 COREBOOT 00000000 CORE 20210331)
+[    0.005672] ACPI: DBG2 0x000000007688B7A0 000054 (v00 COREv4 COREBOOT 00000000 CORE 20210331)
+[    0.005674] ACPI: HPET 0x000000007688B800 000038 (v01 COREv4 COREBOOT 00000000 CORE 20210331)
+[    0.005677] ACPI: Reserving FACP table memory at [mem 0x76887230-0x76887343]
+[    0.005677] ACPI: Reserving DSDT table memory at [mem 0x76882280-0x76887220]
+[    0.005678] ACPI: Reserving FACS table memory at [mem 0x76882240-0x7688227f]
+[    0.005679] ACPI: Reserving FACS table memory at [mem 0x76882240-0x7688227f]
+[    0.005680] ACPI: Reserving SSDT table memory at [mem 0x76887350-0x7688b5d3]
+[    0.005681] ACPI: Reserving MCFG table memory at [mem 0x7688b5e0-0x7688b61b]
+[    0.005681] ACPI: Reserving TPM2 table memory at [mem 0x7688b620-0x7688b66b]
+[    0.005682] ACPI: Reserving APIC table memory at [mem 0x7688b670-0x7688b701]
+[    0.005683] ACPI: Reserving DMAR table memory at [mem 0x7688b710-0x7688b797]
+[    0.005684] ACPI: Reserving DBG2 table memory at [mem 0x7688b7a0-0x7688b7f3]
+[    0.005684] ACPI: Reserving HPET table memory at [mem 0x7688b800-0x7688b837]
+[    0.005700] ACPI: Local APIC address 0xfee00000
+[    0.005711] Zone ranges:
+[    0.005712]   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+[    0.005714]   DMA32    [mem 0x0000000001000000-0x00000000ffffffff]
+[    0.005715]   Normal   [mem 0x0000000100000000-0x000000027fbfffff]
+[    0.005716] Movable zone start for each node
+[    0.005717] Early memory node ranges
+[    0.005718]   node   0: [mem 0x0000000000001000-0x000000000009ffff]
+[    0.005719]   node   0: [mem 0x0000000000100000-0x0000000076870fff]
+[    0.005720]   node   0: [mem 0x0000000100000000-0x000000027fbfffff]
+[    0.005722] Initmem setup node 0 [mem 0x0000000000001000-0x000000027fbfffff]
+[    0.005724] On node 0 totalpages: 2057232
+[    0.005725]   DMA zone: 64 pages used for memmap
+[    0.005725]   DMA zone: 23 pages reserved
+[    0.005726]   DMA zone: 3999 pages, LIFO batch:0
+[    0.005727]   DMA32 zone: 7522 pages used for memmap
+[    0.005728]   DMA32 zone: 481393 pages, LIFO batch:63
+[    0.005728]   Normal zone: 24560 pages used for memmap
+[    0.005729]   Normal zone: 1571840 pages, LIFO batch:63
+[    0.005731] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.005754] On node 0, zone DMA: 96 pages in unavailable ranges
+[    0.017068] On node 0, zone Normal: 6031 pages in unavailable ranges
+[    0.017075] On node 0, zone Normal: 1024 pages in unavailable ranges
+[    0.017098] Reserving Intel graphics memory at [mem 0x7c800000-0x803fffff]
+[    0.018123] ACPI: PM-Timer IO Port: 0x1808
+[    0.018124] ACPI: Local APIC address 0xfee00000
+[    0.018129] ACPI: LAPIC_NMI (acpi_id[0xff] high edge lint[0x1])
+[    0.018172] IOAPIC[0]: apic_id 2, version 32, address 0xfec00000, GSI 0-119
+[    0.018174] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.018175] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.018176] ACPI: IRQ0 used by override.
+[    0.018177] ACPI: IRQ9 used by override.
+[    0.018179] Using ACPI (MADT) for SMP configuration information
+[    0.018180] ACPI: HPET id: 0x8086a701 base: 0xfed00000
+[    0.018182] TSC deadline timer available
+[    0.018183] smpboot: Allowing 8 CPUs, 0 hotplug CPUs
+[    0.018190] [mem 0x80400000-0xbfffffff] available for PCI devices
+[    0.018192] clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[    0.021780] setup_percpu: NR_CPUS:24 nr_cpumask_bits:24 nr_cpu_ids:8 nr_node_ids:1
+[    0.022002] percpu: Embedded 57 pages/cpu s194392 r8192 d30888 u262144
+[    0.022005] pcpu-alloc: s194392 r8192 d30888 u262144 alloc=1*2097152
+[    0.022006] pcpu-alloc: [0] 0 1 2 3 4 5 6 7 
+[    0.022019] Built 1 zonelists, mobility grouping on.  Total pages: 2025063
+[    0.022021] Kernel command line: cros_secure console= loglevel=7 init=/sbin/init cros_secure drm.trace=0x106 root=/dev/dm-0 rootwait ro dm_verity.error_behavior=3 dm_verity.max_bios=-1 dm_verity.dev_wait=1  noinitrd panic=60 cros_recovery kern_b_hash=de00d655613975824ae0ea15aa6908f75280b0078f6ed5e6eba2d13a5d233cf0 vt.global_cursor_default=0 kern_guid=55925989-77ff-604c-86e8-2f783e782239 add_efi_memmap boot=local noresume noswap i915.modeset=1 ramoops.ecc=1 tpm_tis.force=0 intel_pmc_core.warn_on_s0ix_failures=1 i915.enable_guc=3 i915.enable_dc=4 xdomain=0 swiotlb=65536 intel_iommu=on i915.enable_psr=1 usb-storage.quirks=13fe:6500:u   
+[    0.022146] Setting dangerous option i915.enable_guc - tainting kernel
+[    0.022148] Setting dangerous option i915.enable_dc - tainting kernel
+[    0.022165] DMAR: IOMMU enabled
+[    0.022168] Setting dangerous option i915.enable_psr - tainting kernel
+[    0.022767] Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+[    0.023066] Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.023267] mem auto-init: stack:all(zero), heap alloc:on, heap free:off
+[    0.054284] Memory: 7889240K/8228928K available (16397K kernel code, 2366K rwdata, 6544K rodata, 27732K init, 1876K bss, 339428K reserved, 0K cma-reserved)
+[    0.054573] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    0.054669] ftrace: allocating 52285 entries in 205 pages
+[    0.071886] ftrace: allocated 205 pages with 5 groups
+[    0.071974] rcu: Preemptible hierarchical RCU implementation.
+[    0.071975] rcu: 	RCU restricting CPUs from NR_CPUS=24 to nr_cpu_ids=8.
+[    0.071975] 	Trampoline variant of Tasks RCU enabled.
+[    0.071976] 	Rude variant of Tasks RCU enabled.
+[    0.071976] 	Tracing variant of Tasks RCU enabled.
+[    0.071977] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    0.071978] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
+[    0.073438] NR_IRQS: 4352, nr_irqs: 2048, preallocated irqs: 16
+[    0.073659] rcu: 	Note: kernel parameter 'rcu_nocbs=', 'nohz_full', or 'isolcpus=' contains nonexistent CPUs.
+[    0.073660] rcu: 	Offload RCU callbacks from CPUs: 0-7.
+[    0.073846] kfence: initialized - using 2097152 bytes for 255 objects at 0x(____ptrval____)-0x(____ptrval____)
+[    0.073854] random: crng init done
+[    0.073895] spurious 8259A interrupt: IRQ7.
+[    0.073918] ACPI: Core revision 20200925
+[    0.073950] hpet: HPET dysfunctional in PC10. Force disabled.
+[    0.073951] APIC: Switch to symmetric I/O mode setup
+[    0.077161] clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x23fa772cf26, max_idle_ns: 440795269835 ns
+[    0.077164] Calibrating delay loop (skipped), value calculated using timer frequency.. 4992.00 BogoMIPS (lpj=2496000)
+[    0.077166] pid_max: default: 32768 minimum: 301
+[    0.077177] LSM: Security Framework initializing
+[    0.077183] landlock: Up and running.
+[    0.077184] Yama: becoming mindful.
+[    0.077187] LoadPin: ready to pin (currently enforcing)
+[    0.077189] Chromium OS LSM: enabled
+[    0.077190] SELinux:  Initializing.
+[    0.077219] Mount-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.077233] Mountpoint-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.077410] CPU0: Thermal monitoring enabled (TM1)
+[    0.077412] x86/cpu: User Mode Instruction Prevention (UMIP) activated
+[    0.077509] process: using mwait in idle threads
+[    0.077511] Last level iTLB entries: 4KB 0, 2MB 0, 4MB 0
+[    0.077512] Last level dTLB entries: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[    0.077514] Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+[    0.077518] Spectre V2 : Mitigation: Enhanced IBRS
+[    0.077518] Spectre V2 : Spectre v2 / SpectreRSB mitigation: Filling RSB on context switch
+[    0.077519] Spectre V2 : Spectre v2 / PBRSB-eIBRS: Retire a single CALL on VMEXIT
+[    0.077521] Spectre V2 : mitigation: Enabling conditional Indirect Branch Prediction Barrier
+[    0.077523] Speculative Store Bypass: Mitigation: Speculative Store Bypass disabled via prctl and seccomp
+[    0.078162] Freeing SMP alternatives memory: 40K
+[    0.078162] smpboot: CPU0: 12th Gen Intel(R) Core(TM) i3-1215U (family: 0x6, model: 0x9a, stepping: 0x4)
+[    0.078162] Performance Events: XSAVE Architectural LBR, PEBS fmt4+-baseline,  AnyThread deprecated, generic architected perfmon, 32-deep LBR, full-width counters, Intel PMU driver.
+[    0.078162] ... version:                5
+[    0.078162] ... bit width:              48
+[    0.078162] ... generic registers:      6
+[    0.078162] ... value mask:             0000ffffffffffff
+[    0.078162] ... max period:             00007fffffffffff
+[    0.078162] ... fixed-purpose events:   3
+[    0.078162] ... event mask:             000100070000003f
+[    0.078162] rcu: Hierarchical SRCU implementation.
+[    0.079187] NMI watchdog: Enabled. Permanently consumes one hw-PMU counter.
+[    0.079231] smp: Bringing up secondary CPUs ...
+[    0.079288] x86: Booting SMP configuration:
+[    0.079289] .... node  #0, CPUs:      #1 #2 #3 #4 #5 #6 #7
+[    0.122173] smp: Brought up 1 node, 8 CPUs
+[    0.122175] smpboot: Max logical packages: 1
+[    0.122176] smpboot: Total of 8 processors activated (39936.00 BogoMIPS)
+[    0.124179] devtmpfs: initialized
+[    0.125229] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.125241] futex hash table entries: 2048 (order: 5, 131072 bytes, linear)
+[    0.125274] pinctrl core: initialized pinctrl subsystem
+[    0.126166] PM: RTC time: 15:20:37, date: 2022-08-18
+[    0.126239] NET: Registered protocol family 16
+[    0.126342] audit: initializing netlink subsys (disabled)
+[    0.126344] audit: type=2000 audit(1660836037.049:1): state=initialized audit_enabled=0 res=1
+[    0.127194] thermal_sys: Registered thermal governor 'step_wise'
+[    0.127194] thermal_sys: Registered thermal governor 'user_space'
+[    0.127201] cpuidle: using governor ladder
+[    0.127203] cpuidle: using governor menu
+[    0.127282] ACPI: bus type PCI registered
+[    0.127282] acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+[    0.127282] PCI: MMCONFIG for domain 0000 [bus 00-ff] at [mem 0xc0000000-0xcfffffff] (base 0xc0000000)
+[    0.127282] PCI: MMCONFIG at [mem 0xc0000000-0xcfffffff] reserved in E820
+[    0.127282] PCI: Using configuration type 1 for base access
+[    0.128323] ENERGY_PERF_BIAS: Set to 'normal', was 'performance'
+[    0.134204] cryptd: max_cpu_qlen set to 1000
+[    0.136179] ACPI: Added _OSI(Module Device)
+[    0.136179] ACPI: Added _OSI(Processor Device)
+[    0.136179] ACPI: Added _OSI(3.0 _SCP Extensions)
+[    0.136179] ACPI: Added _OSI(Processor Aggregator Device)
+[    0.136179] ACPI: Added _OSI(Linux-Dell-Video)
+[    0.136179] ACPI: Added _OSI(Linux-Lenovo-NV-HDMI-Audio)
+[    0.136179] ACPI: Added _OSI(Linux-HPI-Hybrid-Graphics)
+[    0.145204] ACPI: 2 ACPI AML tables successfully acquired and loaded
+[    0.149212] ACPI: USB4 _OSC: OS supports USB3+ DisplayPort+ PCIe+ XDomain+
+[    0.149213] ACPI: USB4 _OSC: OS controls USB3+ DisplayPort+ PCIe+ XDomain+
+[    0.150197] ACPI: EC: EC started
+[    0.150197] ACPI: EC: interrupt blocked
+[    0.150288] ACPI: EC: EC_CMD/EC_SC=0x66, EC_DATA=0x62
+[    0.150290] ACPI: \_SB_.PCI0.LPCB.EC0_: Boot DSDT EC used to handle transactions
+[    0.150291] ACPI: Interpreter enabled
+[    0.150299] ACPI: (supports S0 S3 S5)
+[    0.150300] ACPI: Using IOAPIC for interrupt routing
+[    0.150311] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+[    0.151254] ACPI: Enabled 2 GPEs in block 00 to 7F
+[    0.156284] ACPI: Power Resource [RTD3] (on)
+[    0.163297] ACPI: Power Resource [PR00] (on)
+[    0.374261] ACPI: Power Resource [PR01] (on)
+[    0.409293] ACPI: Power Resource [TBT0] (on)
+[    0.409340] ACPI: Power Resource [TBT1] (on)
+[    0.410180] ACPI: Power Resource [D3C] (on)
+[    0.432188] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    0.432195] acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI HPX-Type3]
+[    0.432236] acpi PNP0A08:00: _OSC: OS now controls [PCIeHotplug PME AER PCIeCapability LTR]
+[    0.435271] PCI host bridge to bus 0000:00
+[    0.435275] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+[    0.435277] pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+[    0.435279] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+[    0.435281] pci_bus 0000:00: root bus resource [mem 0x000c0000-0x000c3fff window]
+[    0.435283] pci_bus 0000:00: root bus resource [mem 0x000c4000-0x000c7fff window]
+[    0.435285] pci_bus 0000:00: root bus resource [mem 0x000c8000-0x000cbfff window]
+[    0.435287] pci_bus 0000:00: root bus resource [mem 0x000cc000-0x000cffff window]
+[    0.435289] pci_bus 0000:00: root bus resource [mem 0x000d0000-0x000d3fff window]
+[    0.435290] pci_bus 0000:00: root bus resource [mem 0x000d4000-0x000d7fff window]
+[    0.435292] pci_bus 0000:00: root bus resource [mem 0x000d8000-0x000dbfff window]
+[    0.435294] pci_bus 0000:00: root bus resource [mem 0x000dc000-0x000dffff window]
+[    0.435296] pci_bus 0000:00: root bus resource [mem 0x000e0000-0x000e3fff window]
+[    0.435297] pci_bus 0000:00: root bus resource [mem 0x000e4000-0x000e7fff window]
+[    0.435299] pci_bus 0000:00: root bus resource [mem 0x000e8000-0x000ebfff window]
+[    0.435301] pci_bus 0000:00: root bus resource [mem 0x000ec000-0x000effff window]
+[    0.435303] pci_bus 0000:00: root bus resource [mem 0x000f0000-0x000fffff window]
+[    0.435305] pci_bus 0000:00: root bus resource [mem 0x80400000-0xdfffffff window]
+[    0.435307] pci_bus 0000:00: root bus resource [mem 0x27fc00000-0x7fffffffff window]
+[    0.435308] pci_bus 0000:00: root bus resource [mem 0xfc800000-0xfe7fffff window]
+[    0.435310] pci_bus 0000:00: root bus resource [mem 0xfed40000-0xfed47fff window]
+[    0.435312] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.435342] pci 0000:00:00.0: [8086:4609] type 00 class 0x060000
+[    0.436347] pci 0000:00:02.0: [8086:46b3] type 00 class 0x030000
+[    0.436360] pci 0000:00:02.0: reg 0x10: [mem 0x81000000-0x81ffffff 64bit]
+[    0.436368] pci 0000:00:02.0: reg 0x18: [mem 0x90000000-0x9fffffff 64bit pref]
+[    0.437165] pci 0000:00:02.0: reg 0x20: [io  0x1000-0x103f]
+[    0.437185] pci 0000:00:02.0: DMAR: Skip IOMMU disabling for graphics
+[    0.437332] pci 0000:00:04.0: [8086:461d] type 00 class 0x118000
+[    0.437350] pci 0000:00:04.0: reg 0x10: [mem 0x80700000-0x8071ffff 64bit]
+[    0.439165] pci 0000:00:06.0: [8086:464d] type 01 class 0x060400
+[    0.439302] pci 0000:00:06.0: PME# supported from D0 D3hot D3cold
+[    0.440288] pci 0000:00:08.0: [8086:464f] type 00 class 0x088000
+[    0.440300] pci 0000:00:08.0: reg 0x10: [mem 0x00000000-0x00000fff 64bit]
+[    0.441257] pci 0000:00:0d.0: [8086:461e] type 00 class 0x0c0330
+[    0.441270] pci 0000:00:0d.0: reg 0x10: [mem 0x80720000-0x8072ffff 64bit]
+[    0.441322] pci 0000:00:0d.0: PME# supported from D3hot D3cold
+[    0.442302] pci 0000:00:14.0: [8086:51ed] type 00 class 0x0c0330
+[    0.442327] pci 0000:00:14.0: reg 0x10: [mem 0x80730000-0x8073ffff 64bit]
+[    0.443218] pci 0000:00:14.0: PME# supported from D3hot D3cold
+[    0.443362] pci 0000:00:14.2: [8086:51ef] type 00 class 0x050000
+[    0.444179] pci 0000:00:14.2: reg 0x10: [mem 0x80740000-0x80743fff 64bit]
+[    0.444197] pci 0000:00:14.2: reg 0x18: [mem 0x8074c000-0x8074cfff 64bit]
+[    0.446188] pci 0000:00:14.3: [8086:51f0] type 00 class 0x028000
+[    0.446254] pci 0000:00:14.3: reg 0x10: [mem 0x80744000-0x80747fff 64bit]
+[    0.447223] pci 0000:00:14.3: PME# supported from D0 D3hot D3cold
+[    0.448215] pci 0000:00:15.0: [8086:51e8] type 00 class 0x0c8000
+[    0.448245] pci 0000:00:15.0: reg 0x10: [mem 0x8074d000-0x8074dfff 64bit]
+[    0.449261] pci 0000:00:15.1: [8086:51e9] type 00 class 0x0c8000
+[    0.449287] pci 0000:00:15.1: reg 0x10: [mem 0x8074e000-0x8074efff 64bit]
+[    0.450308] pci 0000:00:15.3: [8086:51eb] type 00 class 0x0c8000
+[    0.450338] pci 0000:00:15.3: reg 0x10: [mem 0x8074f000-0x8074ffff 64bit]
+[    0.452172] pci 0000:00:19.0: [8086:51c5] type 00 class 0x0c8000
+[    0.452197] pci 0000:00:19.0: reg 0x10: [mem 0x00000000-0x00000fff 64bit]
+[    0.453191] pci 0000:00:19.1: [8086:51c6] type 00 class 0x0c8000
+[    0.453218] pci 0000:00:19.1: reg 0x10: [mem 0x80751000-0x80751fff 64bit]
+[    0.454252] pci 0000:00:1c.0: [8086:51bf] type 01 class 0x060400
+[    0.455205] pci 0000:00:1c.0: PME# supported from D0 D3hot D3cold
+[    0.455323] pci 0000:00:1e.0: [8086:51a8] type 00 class 0x078000
+[    0.455350] pci 0000:00:1e.0: reg 0x10: [mem 0xfe03e000-0xfe03efff 64bit]
+[    0.456363] pci 0000:00:1e.3: [8086:51ab] type 00 class 0x0c8000
+[    0.457182] pci 0000:00:1e.3: reg 0x10: [mem 0x80752000-0x80752fff 64bit]
+[    0.458186] pci 0000:00:1f.0: [8086:5182] type 00 class 0x060100
+[    0.459201] pci 0000:00:1f.3: [8086:51c8] type 00 class 0x040100
+[    0.459250] pci 0000:00:1f.3: reg 0x10: [mem 0x80748000-0x8074bfff 64bit]
+[    0.459322] pci 0000:00:1f.3: reg 0x20: [mem 0x80600000-0x806fffff 64bit]
+[    0.460229] pci 0000:00:1f.3: PME# supported from D3hot D3cold
+[    0.460368] pci 0000:00:1f.5: [8086:51a4] type 00 class 0x0c8000
+[    0.461179] pci 0000:00:1f.5: reg 0x10: [mem 0xfe010000-0xfe010fff]
+[    0.465176] pci 0000:01:00.0: [1987:5013] type 00 class 0x010802
+[    0.465192] pci 0000:01:00.0: reg 0x10: [mem 0x80400000-0x80403fff 64bit]
+[    0.470186] pci 0000:00:06.0: PCI bridge to [bus 01]
+[    0.470190] pci 0000:00:06.0:   bridge window [mem 0x80400000-0x804fffff]
+[    0.470264] pci 0000:02:00.0: [10ec:522a] type 00 class 0xff0000
+[    0.470291] pci 0000:02:00.0: reg 0x10: [mem 0x80500000-0x80500fff]
+[    0.471263] pci 0000:02:00.0: supports D1 D2
+[    0.471264] pci 0000:02:00.0: PME# supported from D1 D2 D3hot D3cold
+[    0.472239] pci 0000:00:1c.0: PCI bridge to [bus 02]
+[    0.472244] pci 0000:00:1c.0:   bridge window [mem 0x80500000-0x805fffff]
+[    0.472279] pci_bus 0000:00: on NUMA node 0
+[    0.475363] ACPI Error: AE_NOT_FOUND, While resolving a named reference package element - \NULL (20200925/dspkginit-438)
+[    0.482322] ACPI: EC: interrupt unblocked
+[    0.482323] ACPI: EC: event unblocked
+[    0.482336] ACPI: EC: EC_CMD/EC_SC=0x66, EC_DATA=0x62
+[    0.482337] ACPI: EC: GPE=0x6e
+[    0.482338] ACPI: \_SB_.PCI0.LPCB.EC0_: Boot DSDT EC initialization complete
+[    0.482339] ACPI: \_SB_.PCI0.LPCB.EC0_: EC: Used to handle transactions and events
+[    0.483190] iommu: Default domain type: Translated 
+[    0.483228] SCSI subsystem initialized
+[    0.483232] libata version 3.00 loaded.
+[    0.483232] ACPI: bus type USB registered
+[    0.483232] usbcore: registered new interface driver usbfs
+[    0.483232] usbcore: registered new interface driver hub
+[    0.483232] usbcore: registered new device driver usb
+[    0.483232] mc: Linux media interface: v0.10
+[    0.483232] videodev: Linux video capture interface: v2.00
+[    0.484185] chromeos_acpi: registering CHSW 0
+[    0.484250] chromeos_acpi: registering VBNV 0
+[    0.484252] chromeos_acpi: registering VBNV 1
+[    0.484354] chromeos_acpi: truncating buffer from 3072 to 1336
+[    0.485229] chromeos_acpi: installed
+[    0.485235] Advanced Linux Sound Architecture Driver Initialized.
+[    0.486174] PCI: Using ACPI for IRQ routing
+[    0.596275] PCI: pci_cache_line_size set to 64 bytes
+[    0.604257] e820: reserve RAM buffer [mem 0x76871000-0x77ffffff]
+[    0.604279] e820: reserve RAM buffer [mem 0x27fc00000-0x27fffffff]
+[    0.606163] clocksource: Switched to clocksource tsc-early
+[    0.616666] VFS: Disk quotas dquot_6.6.0
+[    0.616682] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.616720] pnp: PnP ACPI init
+[    0.616847] system 00:00: [mem 0xfedc0000-0xfeddffff] has been reserved
+[    0.616849] system 00:00: [mem 0xfeda0000-0xfeda0fff] has been reserved
+[    0.616850] system 00:00: [mem 0xfeda1000-0xfeda1fff] has been reserved
+[    0.616851] system 00:00: [mem 0xc0000000-0xcfffffff] has been reserved
+[    0.616852] system 00:00: [mem 0xfed90000-0xfed93fff] could not be reserved
+[    0.616854] system 00:00: [mem 0xfe000000-0xffffffff] could not be reserved
+[    0.616855] system 00:00: [mem 0xf8000000-0xf9ffffff] has been reserved
+[    0.616856] system 00:00: [mem 0xfee00000-0xfeefffff] has been reserved
+[    0.616857] system 00:00: [mem 0xfed00000-0xfed003ff] has been reserved
+[    0.616862] system 00:00: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.616891] system 00:01: [mem 0xfed00000-0xfed003ff] has been reserved
+[    0.616894] system 00:01: Plug and Play ACPI device, IDs PNP0103 PNP0c01 (active)
+[    0.616918] system 00:02: [io  0x1800-0x18fe] has been reserved
+[    0.616920] system 00:02: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.616933] pnp 00:03: Plug and Play ACPI device, IDs PNP0b00 (active)
+[    0.616960] system 00:04: [io  0x0900-0x09fe] has been reserved
+[    0.616962] system 00:04: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.616985] system 00:05: [io  0x0200] has been reserved
+[    0.616986] system 00:05: [io  0x0204] has been reserved
+[    0.616987] system 00:05: [io  0x0800-0x087f] has been reserved
+[    0.616989] system 00:05: [io  0x0880-0x08ff] has been reserved
+[    0.616991] system 00:05: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.617176] pnp 00:06: Plug and Play ACPI device, IDs PNP0303 PNP030b (active)
+[    0.618078] pnp: PnP ACPI: found 7 devices
+[    0.622740] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+[    0.622825] NET: Registered protocol family 2
+[    0.622945] IP idents hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.623848] tcp_listen_portaddr_hash hash table entries: 4096 (order: 4, 65536 bytes, linear)
+[    0.623952] TCP established hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.624099] TCP bind hash table entries: 65536 (order: 8, 1048576 bytes, linear)
+[    0.624186] TCP: Hash tables configured (established 65536 bind 65536)
+[    0.624235] UDP hash table entries: 4096 (order: 5, 131072 bytes, linear)
+[    0.624258] UDP-Lite hash table entries: 4096 (order: 5, 131072 bytes, linear)
+[    0.624301] NET: Registered protocol family 1
+[    0.624312] pci 0000:00:1c.0: bridge window [io  0x1000-0x0fff] to [bus 02] add_size 1000
+[    0.624315] pci 0000:00:1c.0: bridge window [mem 0x00100000-0x000fffff 64bit pref] to [bus 02] add_size 200000 add_align 100000
+[    0.624327] pci 0000:00:1c.0: BAR 9: assigned [mem 0x27fc00000-0x27fdfffff 64bit pref]
+[    0.624333] pci 0000:00:08.0: BAR 0: assigned [mem 0x27fe00000-0x27fe00fff 64bit]
+[    0.624342] pci 0000:00:19.0: BAR 0: assigned [mem 0x27fe01000-0x27fe01fff 64bit]
+[    0.624357] pci 0000:00:1c.0: BAR 7: assigned [io  0x2000-0x2fff]
+[    0.624360] pci 0000:00:06.0: PCI bridge to [bus 01]
+[    0.624411] pci 0000:00:06.0:   bridge window [mem 0x80400000-0x804fffff]
+[    0.624471] pci 0000:00:1c.0: PCI bridge to [bus 02]
+[    0.624475] pci 0000:00:1c.0:   bridge window [io  0x2000-0x2fff]
+[    0.624479] pci 0000:00:1c.0:   bridge window [mem 0x80500000-0x805fffff]
+[    0.624483] pci 0000:00:1c.0:   bridge window [mem 0x27fc00000-0x27fdfffff 64bit pref]
+[    0.624489] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+[    0.624490] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+[    0.624492] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+[    0.624493] pci_bus 0000:00: resource 7 [mem 0x000c0000-0x000c3fff window]
+[    0.624494] pci_bus 0000:00: resource 8 [mem 0x000c4000-0x000c7fff window]
+[    0.624495] pci_bus 0000:00: resource 9 [mem 0x000c8000-0x000cbfff window]
+[    0.624497] pci_bus 0000:00: resource 10 [mem 0x000cc000-0x000cffff window]
+[    0.624498] pci_bus 0000:00: resource 11 [mem 0x000d0000-0x000d3fff window]
+[    0.624499] pci_bus 0000:00: resource 12 [mem 0x000d4000-0x000d7fff window]
+[    0.624501] pci_bus 0000:00: resource 13 [mem 0x000d8000-0x000dbfff window]
+[    0.624502] pci_bus 0000:00: resource 14 [mem 0x000dc000-0x000dffff window]
+[    0.624503] pci_bus 0000:00: resource 15 [mem 0x000e0000-0x000e3fff window]
+[    0.624505] pci_bus 0000:00: resource 16 [mem 0x000e4000-0x000e7fff window]
+[    0.624506] pci_bus 0000:00: resource 17 [mem 0x000e8000-0x000ebfff window]
+[    0.624507] pci_bus 0000:00: resource 18 [mem 0x000ec000-0x000effff window]
+[    0.624508] pci_bus 0000:00: resource 19 [mem 0x000f0000-0x000fffff window]
+[    0.624510] pci_bus 0000:00: resource 20 [mem 0x80400000-0xdfffffff window]
+[    0.624511] pci_bus 0000:00: resource 21 [mem 0x27fc00000-0x7fffffffff window]
+[    0.624512] pci_bus 0000:00: resource 22 [mem 0xfc800000-0xfe7fffff window]
+[    0.624514] pci_bus 0000:00: resource 23 [mem 0xfed40000-0xfed47fff window]
+[    0.624515] pci_bus 0000:01: resource 1 [mem 0x80400000-0x804fffff]
+[    0.624517] pci_bus 0000:02: resource 0 [io  0x2000-0x2fff]
+[    0.624518] pci_bus 0000:02: resource 1 [mem 0x80500000-0x805fffff]
+[    0.624519] pci_bus 0000:02: resource 2 [mem 0x27fc00000-0x27fdfffff 64bit pref]
+[    0.624583] pci 0000:00:02.0: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff]
+[    0.625927] PCI: CLS 64 bytes, default 64
+[    2.350903] DMAR: Host address width 39
+[    2.350907] DMAR: DRHD base: 0x000000fed90000 flags: 0x0
+[    2.350923] DMAR: dmar0: reg_base_addr fed90000 ver 4:0 cap 1c0000c40660462 ecap 29a00f0505e
+[    2.350925] DMAR: DRHD base: 0x000000fed91000 flags: 0x1
+[    2.350930] DMAR: dmar1: reg_base_addr fed91000 ver 5:0 cap d2008c40660462 ecap f050da
+[    2.350931] DMAR: RMRR base: 0x0000007c000000 end: 0x000000803fffff
+[    2.350938] DMAR: No ATSR found
+[    2.350942] DMAR: dmar0: Using Queued invalidation
+[    2.350948] DMAR: dmar1: Using Queued invalidation
+[    2.351262] pci 0000:00:00.0: Adding to iommu group 0
+[    2.351270] pci 0000:00:02.0: Adding to iommu group 1
+[    2.351278] pci 0000:00:04.0: Adding to iommu group 2
+[    2.351320] pci 0000:00:06.0: Adding to iommu group 3
+[    2.351326] pci 0000:00:08.0: Adding to iommu group 4
+[    2.351334] pci 0000:00:0d.0: Adding to iommu group 5
+[    2.351348] pci 0000:00:14.0: Adding to iommu group 6
+[    2.351354] pci 0000:00:14.2: Adding to iommu group 6
+[    2.351361] pci 0000:00:14.3: Adding to iommu group 7
+[    2.351378] pci 0000:00:15.0: Adding to iommu group 8
+[    2.351385] pci 0000:00:15.1: Adding to iommu group 8
+[    2.351392] pci 0000:00:15.3: Adding to iommu group 8
+[    2.351403] pci 0000:00:19.0: Adding to iommu group 9
+[    2.351409] pci 0000:00:19.1: Adding to iommu group 9
+[    2.351419] pci 0000:00:1c.0: Adding to iommu group 10
+[    2.351430] pci 0000:00:1e.0: Adding to iommu group 11
+[    2.351437] pci 0000:00:1e.3: Adding to iommu group 11
+[    2.351450] pci 0000:00:1f.0: Adding to iommu group 12
+[    2.351457] pci 0000:00:1f.3: Adding to iommu group 12
+[    2.351467] pci 0000:00:1f.5: Adding to iommu group 12
+[    2.351496] pci 0000:01:00.0: Adding to iommu group 13
+[    2.351505] pci 0000:02:00.0: Adding to iommu group 14
+[    2.360334] DMAR: Intel(R) Virtualization Technology for Directed I/O
+[    2.360337] PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+[    2.360339] software IO TLB: mapped [mem 0x000000006e871000-0x0000000076871000] (128MB)
+[    2.360346] ACPI: bus type thunderbolt registered
+[    2.360716] kvm: already loaded vendor module 'kvm_intel'
+[    2.360719] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x23fa772cf26, max_idle_ns: 440795269835 ns
+[    2.360732] clocksource: Switched to clocksource tsc
+[    2.361102] check: Scanning for low memory corruption every 60 seconds
+[    2.361463] Initialise system trusted keyrings
+[    2.361482] workingset: timestamp_bits=62 max_order=21 bucket_order=0
+[    2.362390] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.362472] Registering esdfs 0.2
+[    2.362498] alt_syscall: table 'read_write_test' available.
+[    2.362507] alt_syscall: table 'android' available.
+[    2.362519] alt_syscall: table 'android_permissive' available.
+[    2.362526] alt_syscall: table 'third_party' available.
+[    2.362533] alt_syscall: table 'third_party_permissive' available.
+[    2.362540] alt_syscall: table 'complete' available.
+[    2.362550] alt_syscall: table 'complete_permissive' available.
+[    2.365271] Key type asymmetric registered
+[    2.365272] Asymmetric key parser 'x509' registered
+[    2.365278] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 247)
+[    2.365279] io scheduler mq-deadline registered
+[    2.365280] io scheduler kyber registered
+[    2.365295] io scheduler bfq registered
+[    2.365568] gpiochip_find_base: found new base at 152
+[    2.366909] gpio gpiochip0: (INTC1055:00): created GPIO range 0->25 ==> INTC1055:00 PIN 0->25
+[    2.366910] gpio gpiochip0: (INTC1055:00): created GPIO range 32->47 ==> INTC1055:00 PIN 26->41
+[    2.366911] gpio gpiochip0: (INTC1055:00): created GPIO range 64->88 ==> INTC1055:00 PIN 42->66
+[    2.366912] gpio gpiochip0: (INTC1055:00): created GPIO range 96->103 ==> INTC1055:00 PIN 67->74
+[    2.366913] gpio gpiochip0: (INTC1055:00): created GPIO range 128->151 ==> INTC1055:00 PIN 75->98
+[    2.366914] gpio gpiochip0: (INTC1055:00): created GPIO range 160->180 ==> INTC1055:00 PIN 99->119
+[    2.366915] gpio gpiochip0: (INTC1055:00): created GPIO range 192->215 ==> INTC1055:00 PIN 120->143
+[    2.366916] gpio gpiochip0: (INTC1055:00): created GPIO range 224->250 ==> INTC1055:00 PIN 144->170
+[    2.366917] gpio gpiochip0: (INTC1055:00): created GPIO range 256->279 ==> INTC1055:00 PIN 171->194
+[    2.366918] gpio gpiochip0: (INTC1055:00): created GPIO range 288->312 ==> INTC1055:00 PIN 195->219
+[    2.366919] gpio gpiochip0: (INTC1055:00): created GPIO range 320->344 ==> INTC1055:00 PIN 226->250
+[    2.366919] gpio gpiochip0: (INTC1055:00): created GPIO range 352->359 ==> INTC1055:00 PIN 260->267
+[    2.366964] gpio gpiochip0: (INTC1055:00): added GPIO chardev (254:0)
+[    2.366973] gpio gpiochip0: registered GPIOs 152 to 511 on INTC1055:00
+[    2.366994] pci 0000:00:06.0: attach allowed to drvr pcieport [internal device]
+[    2.367176] pcieport 0000:00:06.0: can't derive routing for PCI INT D
+[    2.367177] pcieport 0000:00:06.0: PCI INT D: no GSI
+[    2.367320] pcieport 0000:00:06.0: PME: Signaling with IRQ 122
+[    2.367471] pcieport 0000:00:06.0: AER: enabled with IRQ 122
+[    2.367543] pci 0000:00:1c.0: attach allowed to drvr pcieport [internal device]
+[    2.367552] pcieport 0000:00:1c.0: enabling device (0106 -> 0107)
+[    2.367746] pcieport 0000:00:1c.0: PME: Signaling with IRQ 123
+[    2.367847] pcieport 0000:00:1c.0: AER: enabled with IRQ 123
+[    2.367867] pcieport 0000:00:1c.0: pciehp: Slot #7 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[    2.367976] intel_idle: MWAIT substates: 0x10102020
+[    2.367976] intel_idle: v0.5.1 model 0x9A
+[    2.367979] intel_idle: state C1 is disabled
+[    2.368189] intel_idle: Local APIC timer is reliable in all C-states
+[    2.368294] ACPI: AC Adapter [AC] (on-line)
+[    2.368332] input: Lid Switch as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/device:02/PNP0C09:00/PNP0C0D:00/input/input0
+[    2.369395] ACPI: Lid Switch [LID0]
+[    2.369438] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input1
+[    2.369457] ACPI: Power Button [PWRF]
+[    2.370626] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    2.370956] battery: ACPI: Battery Slot [BAT0] (battery present)
+[    2.371316] hpet_acpi_add: no address or irqs in _CRS
+[    2.371342] Non-volatile memory driver v1.3
+[    2.380036] ACPI: bus type drm_connector registered
+[    2.380130] pci 0000:00:02.0: attach allowed to drvr i915 [internal device]
+[    2.380178] usbcore: registered new interface driver udl
+[    2.381011] i915 0000:00:02.0: [drm] VT-d active for gfx access
+[    2.381042] i915 0000:00:02.0: [drm] Transparent Hugepage mode 'huge=within_size'
+[    2.382130] loop: module loaded
+[    2.382170] lkdtm: No crash points registered, enable through debugfs
+[    2.382190] pci 0000:02:00.0: attach allowed to drvr rtsx_pci [internal device]
+[    2.383302] pci 0000:00:15.0: attach allowed to drvr intel-lpss [internal device]
+[    2.383540] idma64 idma64.0: Found Intel integrated DMA 64-bit
+[    2.385045] i2c_designware i2c_designware.0: GPIO lookup for consumer scl
+[    2.385046] i2c_designware i2c_designware.0: using ACPI for GPIO lookup
+[    2.385048] acpi device:16: GPIO: looking up scl-gpios
+[    2.385049] acpi device:16: GPIO: looking up scl-gpio
+[    2.385050] i2c_designware i2c_designware.0: using lookup tables for GPIO lookup
+[    2.385051] i2c_designware i2c_designware.0: No GPIO consumer scl found
+[    2.385349] pci 0000:00:15.1: attach allowed to drvr intel-lpss [internal device]
+[    2.385613] idma64 idma64.1: Found Intel integrated DMA 64-bit
+[    2.387401] i2c_designware i2c_designware.1: GPIO lookup for consumer scl
+[    2.387402] i2c_designware i2c_designware.1: using ACPI for GPIO lookup
+[    2.387404] acpi device:17: GPIO: looking up scl-gpios
+[    2.387405] acpi device:17: GPIO: looking up scl-gpio
+[    2.387406] i2c_designware i2c_designware.1: using lookup tables for GPIO lookup
+[    2.387407] i2c_designware i2c_designware.1: No GPIO consumer scl found
+[    2.390238] cr50_i2c i2c-GOOG0005:00: cr50 TPM 2.0 (i2c 0x50 irq 77 id 0x28)
+[    2.468201] i915 0000:00:02.0: [drm] GuC firmware i915/adlp_guc_62.0.3.bin version 62.0 submission:enabled
+[    2.468208] i915 0000:00:02.0: [drm] GuC SLPC: enabled
+[    2.468226] i915 0000:00:02.0: [drm] HuC firmware i915/tgl_huc_7.9.3.bin version 7.9 authenticated:yes
+[    2.468602] i915 0000:00:02.0: [drm] GuC RC: enabled
+[    2.469652] i915 0000:00:02.0: [drm] Protected Xe Path (PXP) protected content support initialized
+[    2.486879] pci 0000:00:15.3: attach allowed to drvr intel-lpss [internal device]
+[    2.487514] idma64 idma64.2: Found Intel integrated DMA 64-bit
+[    2.489290] i2c_designware i2c_designware.2: GPIO lookup for consumer scl
+[    2.489292] i2c_designware i2c_designware.2: using ACPI for GPIO lookup
+[    2.489295] acpi device:19: GPIO: looking up scl-gpios
+[    2.489297] acpi device:19: GPIO: looking up scl-gpio
+[    2.489298] i2c_designware i2c_designware.2: using lookup tables for GPIO lookup
+[    2.489300] i2c_designware i2c_designware.2: No GPIO consumer scl found
+[    2.489619] i2c i2c-11: failed to add I2C device GDIX0000:00 from ACPI
+[    2.489846] i2c i2c-11: failed to add I2C device ELAN0001:00 from ACPI
+[    2.489988] pci 0000:00:19.0: attach allowed to drvr intel-lpss [internal device]
+[    2.501418] intel-lpss 0000:00:19.0: enabling device (0000 -> 0002)
+[    2.501994] idma64 idma64.3: Found Intel integrated DMA 64-bit
+[    2.504099] i2c_designware i2c_designware.3: GPIO lookup for consumer scl
+[    2.504101] i2c_designware i2c_designware.3: using ACPI for GPIO lookup
+[    2.504104] acpi device:1a: GPIO: looking up scl-gpios
+[    2.504105] acpi device:1a: GPIO: looking up scl-gpio
+[    2.504107] i2c_designware i2c_designware.3: using lookup tables for GPIO lookup
+[    2.504109] i2c_designware i2c_designware.3: No GPIO consumer scl found
+[    2.504922] pci 0000:00:19.1: attach allowed to drvr intel-lpss [internal device]
+[    2.505447] idma64 idma64.4: Found Intel integrated DMA 64-bit
+[    2.507246] i2c_designware i2c_designware.4: GPIO lookup for consumer scl
+[    2.507247] i2c_designware i2c_designware.4: using ACPI for GPIO lookup
+[    2.507249] acpi device:1b: GPIO: looking up scl-gpios
+[    2.507250] acpi device:1b: GPIO: looking up scl-gpio
+[    2.507251] i2c_designware i2c_designware.4: using lookup tables for GPIO lookup
+[    2.507252] i2c_designware i2c_designware.4: No GPIO consumer scl found
+[    2.507928] i2c i2c-13: failed to add I2C device PNP0C50:00 from ACPI
+[    2.508037] pci 0000:00:1e.0: attach allowed to drvr intel-lpss [internal device]
+[    2.508363] idma64 idma64.5: Found Intel integrated DMA 64-bit
+[    2.508695] dw-apb-uart dw-apb-uart.5: GPIO lookup for consumer rs485-term
+[    2.508698] dw-apb-uart dw-apb-uart.5: using ACPI for GPIO lookup
+[    2.508699] acpi device:22: GPIO: looking up rs485-term-gpios
+[    2.508701] acpi device:22: GPIO: looking up rs485-term-gpio
+[    2.508702] dw-apb-uart dw-apb-uart.5: using lookup tables for GPIO lookup
+[    2.508703] dw-apb-uart dw-apb-uart.5: No GPIO consumer rs485-term found
+[    2.508710] dw-apb-uart.5: ttyS0 at MMIO 0xfe03e000 (irq = 22, base_baud = 114825) is a 16550A
+[    2.508901] pci 0000:00:1e.3: attach allowed to drvr intel-lpss [internal device]
+[    2.521270] idma64 idma64.6: Found Intel integrated DMA 64-bit
+[    2.525252] pci 0000:01:00.0: attach allowed to drvr nvme [internal device]
+[    2.525408] nvme nvme0: pci function 0000:01:00.0
+[    2.525540] PPP generic driver version 2.4.2
+[    2.525705] PPP MPPE Compression module registered
+[    2.525878] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.525882] ehci-pci: EHCI PCI platform driver
+[    2.525901] uhci_hcd: USB Universal Host Controller Interface driver
+[    2.525937] pci 0000:00:0d.0: attach allowed to drvr xhci_hcd [internal device]
+[    2.526274] xhci_hcd 0000:00:0d.0: xHCI Host Controller
+[    2.526391] xhci_hcd 0000:00:0d.0: new USB bus registered, assigned bus number 1
+[    2.527540] xhci_hcd 0000:00:0d.0: hcc params 0x20007fc1 hci version 0x120 quirks 0x0000000200009810
+[    2.527752] xhci_hcd 0000:00:0d.0: xHCI Host Controller
+[    2.527925] xhci_hcd 0000:00:0d.0: new USB bus registered, assigned bus number 2
+[    2.527933] xhci_hcd 0000:00:0d.0: Host supports USB 3.2 Enhanced SuperSpeed
+[    2.527979] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.10
+[    2.527982] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.527984] usb usb1: Product: xHCI Host Controller
+[    2.527986] usb usb1: Manufacturer: Linux 5.10.180-22633-g1d2f89719839 xhci-hcd
+[    2.527988] usb usb1: SerialNumber: 0000:00:0d.0
+[    2.528221] hub 1-0:1.0: USB hub found
+[    2.528235] hub 1-0:1.0: 1 port detected
+[    2.528357] usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 5.10
+[    2.528360] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.528363] usb usb2: Product: xHCI Host Controller
+[    2.528365] usb usb2: Manufacturer: Linux 5.10.180-22633-g1d2f89719839 xhci-hcd
+[    2.528367] usb usb2: SerialNumber: 0000:00:0d.0
+[    2.528582] hub 2-0:1.0: USB hub found
+[    2.528595] hub 2-0:1.0: 3 ports detected
+[    2.528758] pci 0000:00:14.0: attach allowed to drvr xhci_hcd [internal device]
+[    2.529084] xhci_hcd 0000:00:14.0: xHCI Host Controller
+[    2.529223] xhci_hcd 0000:00:14.0: new USB bus registered, assigned bus number 3
+[    2.530412] xhci_hcd 0000:00:14.0: hcc params 0x20007fc1 hci version 0x120 quirks 0x0000100200009810
+[    2.530419] xhci_hcd 0000:00:14.0: cache line size of 64 is not supported
+[    2.530694] xhci_hcd 0000:00:14.0: xHCI Host Controller
+[    2.530819] xhci_hcd 0000:00:14.0: new USB bus registered, assigned bus number 4
+[    2.530827] xhci_hcd 0000:00:14.0: Host supports USB 3.1 Enhanced SuperSpeed
+[    2.530863] usb usb3: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.10
+[    2.530865] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.530867] usb usb3: Product: xHCI Host Controller
+[    2.530868] usb usb3: Manufacturer: Linux 5.10.180-22633-g1d2f89719839 xhci-hcd
+[    2.530870] usb usb3: SerialNumber: 0000:00:14.0
+[    2.531085] hub 3-0:1.0: USB hub found
+[    2.531114] hub 3-0:1.0: 12 ports detected
+[    2.531564] usb usb4: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 5.10
+[    2.531567] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.531569] usb usb4: Product: xHCI Host Controller
+[    2.531571] usb usb4: Manufacturer: Linux 5.10.180-22633-g1d2f89719839 xhci-hcd
+[    2.531573] usb usb4: SerialNumber: 0000:00:14.0
+[    2.531906] hub 4-0:1.0: USB hub found
+[    2.531927] hub 4-0:1.0: 4 ports detected
+[    2.532175] usbcore: registered new interface driver cdc_acm
+[    2.532176] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    2.532516] usbcore: registered new interface driver uas
+[    2.532544] usbcore: registered new interface driver usb-storage
+[    2.532553] usbcore: registered new interface driver ums-realtek
+[    2.532592] i8042: PNP: PS/2 Controller [PNP0303:PS2K] at 0x60,0x64 irq 1
+[    2.532594] i8042: PNP: PS/2 appears to have AUX port disabled, if this is incorrect please boot with i8042.nopnp
+[    2.535350] i8042: Warning: Keylock active
+[    2.535576] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    2.536537] rtc_cmos 00:03: RTC can wake from S4
+[    2.537495] rtc_cmos 00:03: registered as rtc0
+[    2.537500] rtc_cmos 00:03: GPIO lookup for consumer wp
+[    2.537502] rtc_cmos 00:03: using ACPI for GPIO lookup
+[    2.537504] acpi PNP0B00:00: GPIO: looking up wp-gpios
+[    2.537506] acpi PNP0B00:00: GPIO: looking up wp-gpio
+[    2.537507] rtc_cmos 00:03: using lookup tables for GPIO lookup
+[    2.537508] rtc_cmos 00:03: No GPIO consumer wp found
+[    2.537539] rtc_cmos 00:03: alarms up to one month, y3k, 242 bytes nvram
+[    2.537555] i2c /dev entries driver
+[    2.540548] pci 0000:00:04.0: attach allowed to drvr proc_thermal_pci [internal device]
+[    2.541043] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input2
+[    2.541337] intel_rapl_common: Found RAPL domain package
+[    2.542006] iTCO_wdt: Intel TCO WatchDog Timer Driver v1.11
+[    2.542019] iTCO_vendor_support: vendor-support=0
+[    2.542131] device-mapper: ioctl: 4.43.0-ioctl (2020-10-01) initialised: dm-devel@redhat.com
+[    2.542329] device-mapper: verity-chromeos: dm-verity-chromeos registered
+[    2.542331] intel_pstate: HWP enabled by BIOS
+[    2.542334] intel_pstate: Intel P-state driver initializing
+[    2.543581] intel_pstate: HWP enabled
+[    2.543598] sdhci: Secure Digital Host Controller Interface driver
+[    2.543600] sdhci: Copyright(c) Pierre Ossman
+[    2.544107] Registered efivars operations
+[    2.544110] gsmi version 1.0 loaded
+[    2.544608] EFI Variables Facility v0.08 2004-May-17
+[    2.544655] gsmi: exec 0x02ef: Not supported
+[    2.544656] gsmi: Get Next Variable Name failed
+[    2.544658] efivars: get_next_variable: status=8000000000000001
+[    2.544668] hid: raw HID events driver (C) Jiri Kosina
+[    2.544799] usbcore: registered new interface driver usbhid
+[    2.544801] usbhid: USB HID core driver
+[    2.544947] ashmem: initialized
+[    2.545069] intel_pmc_core INT33A1:00:  initialized
+[    2.545128] intel_telemetry_core Init
+[    2.545177] acpi INTC1026:00: GPIO: looking up 0 in _CRS
+[    2.545258] chromeos ramoops using acpi device.
+[    2.546012] printk: console [ramoops-1] enabled
+[    2.546145] pstore: Registered ramoops as persistent store backend
+[    2.546148] ramoops: using 0x100000@0x768ae000, ecc: 0
+[    2.552777] cros-ec-pchg cros-ec-pchg.11.auto: Unable to get number or ports (err:-95)
+[    2.552783] cros-ec-pchg cros-ec-pchg.11.auto: No peripheral charge ports (err:-95)
+[    2.553242] cros_ec_lpcs GOOG0004:00: Chrome EC device registered
+[    2.554935] intel_rapl_msr: PL4 support detected.
+[    2.555006] intel_rapl_common: Found RAPL domain package
+[    2.555012] intel_rapl_common: Found RAPL domain core
+[    2.555014] intel_rapl_common: Found RAPL domain uncore
+[    2.555018] intel_rapl_common: Found RAPL domain psys
+[    2.555700] GACT probability NOT on
+[    2.555991] xt_time: kernel timezone is -0000
+[    2.556410] Initializing XFRM netlink socket
+[    2.556505] NET: Registered protocol family 10
+[    2.556927] Segment Routing with IPv6
+[    2.557256] NET: Registered protocol family 17
+[    2.557283] NET: Registered protocol family 15
+[    2.558297] microcode: sig=0x906a4, pf=0x80, revision=0x41e
+[    2.558406] microcode: Microcode Update Driver: v2.2.
+[    2.558410] IPI shorthand broadcast: enabled
+[    2.558424] AVX2 version of gcm_enc/dec engaged.
+[    2.558536] AES CTR mode by8 optimization enabled
+[    2.559477] sched_clock: Marking stable (2556085681, 3371187)->(2157641277, 401815591)
+[    2.559615] registered taskstats version 1
+[    2.559622] Loading compiled-in X.509 certificates
+[    2.559647] Key type .fscrypt registered
+[    2.559650] Key type fscrypt-provisioning registered
+[    2.559898] pstore: Using crash dump compression: deflate
+[    2.560247] Key type encrypted registered
+[    2.561397] cros_ec_lpcs GOOG0004:00: Transfer error 1/3: -95
+[    2.561402] cros-ec-keyb GOOG0007:00: cannot register non-matrix inputs: -95
+[    2.561516] cros-ec-keyb: probe of GOOG0007:00 failed with error -95
+[    2.591475] PM:   Magic number: 2:228:336
+[    2.591790] ALSA device list:
+[    2.591797]   No soundcards found.
+[    2.591819] Warning: unable to open an initial console. Fallback to ttynull.
+[    2.591832] printk: console [ttynull0] enabled
+[    2.613180] nvme nvme0: missing or invalid SUBNQN field.
+[    2.635742] nvme nvme0: allocated 128 MiB host memory buffer.
+[    2.643357] nvme nvme0: 8/0/0 default/read/poll queues
+[    2.644984] GPT:Primary header thinks Alt. header is not at the end of the disk.
+[    2.644986] GPT:9500556 != 937703087
+[    2.644987] GPT:Alternate GPT header not at the end of the disk.
+[    2.644988] GPT:9500556 != 937703087
+[    2.644988] GPT: Use GNU Parted to correct GPT errors.
+[    2.644994]  nvme0n1: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12
+[    2.656903] elan_i2c i2c-ELAN0000:00: Elan Touchpad: Module ID: 0x012c, Firmware: 0x0002, Sample: 0x0003, IAP: 0x0001
+[    2.657303] input: Elan Touchpad as /devices/pci0000:00/0000:00:19.1/i2c_designware.4/i2c-13/i2c-ELAN0000:00/input/input3
+[    3.040555] usb 3-3: new high-speed USB device number 2 using xhci_hcd
+[    3.447018] usb 3-3: New USB device found, idVendor=0bda, idProduct=9210, bcdDevice=20.01
+[    3.447033] usb 3-3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.447040] usb 3-3: Product: RTL9210B-CG
+[    3.447046] usb 3-3: Manufacturer: Realtek
+[    3.447051] usb 3-3: SerialNumber: 012345678922
+[    3.605086] [drm] Initialized i915 1.6.0 20201103 for 0000:00:02.0 on minor 0
+[    3.613751] Freeing unused kernel image (initmem) memory: 27732K
+[    3.614737] Write protecting the kernel read-only data: 26624k
+[    3.615681] Freeing unused kernel image (text/rodata gap) memory: 2032K
+[    3.616280] Freeing unused kernel image (rodata/data gap) memory: 1648K
+[    3.616296] Run /init as init process
+[    3.616299]   with arguments:
+[    3.616301]     /init
+[    3.616302]     cros_secure
+[    3.616303]     cros_recovery
+[    3.616303]     noresume
+[    3.616304]     noswap
+[    3.616306]   with environment:
+[    3.616307]     HOME=/
+[    3.616308]     TERM=linux
+[    3.616309]     kern_b_hash=de00d655613975824ae0ea15aa6908f75280b0078f6ed5e6eba2d13a5d233cf0
+[    3.616310]     boot=local
+[    3.616311]     xdomain=0
+[    3.616312]     intel_iommu=on
+[    3.854457] i915 0000:00:02.0: Direct firmware load for i915/adlp_dmc_ver2_16.bin failed with error -2
+[    3.854467] i915 0000:00:02.0: [drm] Failed to load DMC firmware i915/adlp_dmc_ver2_16.bin. Disabling runtime power management.
+[    3.854470] i915 0000:00:02.0: [drm] DMC firmware homepage: https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915
+[    3.908517] usb-storage 3-3:1.0: USB Mass Storage device detected
+[    3.909573] scsi host0: usb-storage 3-3:1.0
+[    4.023535] usb 3-6: new high-speed USB device number 3 using xhci_hcd
+[    4.182422] usb 3-6: New USB device found, idVendor=04f2, idProduct=b762, bcdDevice=96.89
+[    4.182433] usb 3-6: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    4.182438] usb 3-6: Product: Integrated Camera
+[    4.182443] usb 3-6: Manufacturer: SunplusIT Inc
+[    4.182446] usb 3-6: SerialNumber: 01.00.00
+[    4.306534] usb 3-10: new full-speed USB device number 4 using xhci_hcd
+[    4.436391] usb 3-10: New USB device found, idVendor=8087, idProduct=0033, bcdDevice= 0.00
+[    4.436401] usb 3-10: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    4.871127] frecon[347]: Frecon using drm driver i915, version 1.6, date(20201103), desc(Intel Graphics) using atomic
+[    4.900660] sh: 
+[    4.900663] /usr/sbin/bootstat: not found
+[    4.900669] 
+[    4.900774] frecon[347]: Failed to execute 'bootstat splash-screen-visible': status = 32512, errno = 0 (Success)
+[    4.911407] libpng error: Read Error
+[    4.911409] 
+[    4.911421] frecon[347]: image_load_image_from_file /dev/null failed: 1:Operation not permitted.
+[    4.911427] frecon[347]: Splash_run failed: 1.
+[    4.975305] scsi 0:0:0:0: Direct-Access     Inateck  FE202x Series    1.00 PQ: 0 ANSI: 6
+[    4.999038] sd 0:0:0:0: [sda] 1000215216 512-byte logical blocks: (512 GB/477 GiB)
+[    5.000148] sd 0:0:0:0: [sda] Write Protect is off
+[    5.000155] sd 0:0:0:0: [sda] Mode Sense: 37 00 00 08
+[    5.001225] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    5.043045] GPT:Primary header thinks Alt. header is not at the end of the disk.
+[    5.043068] GPT:9500556 != 1000215215
+[    5.043071] GPT:Alternate GPT header not at the end of the disk.
+[    5.043073] GPT:9500556 != 1000215215
+[    5.043074] GPT: Use GNU Parted to correct GPT errors.
+[    5.043083]  sda: sda1 sda2 sda3 sda4 sda5 sda6 sda7 sda8 sda9 sda10 sda11 sda12
+[    5.049492] sd 0:0:0:0: [sda] Attached SCSI disk
+[    5.099835] device-mapper: verity: sha256 using implementation "sha256-ni"
+[    5.103507] EXT4-fs (dm-0): mounting ext2 file system using the ext4 subsystem
+[    5.104827] EXT4-fs (dm-0): mounted filesystem without journal. Opts: (null)
+[    6.043184] EXT4-fs (nvme0n1p1): mounting ext2 file system using the ext4 subsystem
+[    6.044162] EXT4-fs (nvme0n1p1): mounted filesystem without journal. Opts: (null)
+[   33.573485] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.574380] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.575669] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.575882] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.576189] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.576345] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.576558] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.576765] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.576974] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   33.577078] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.850638] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.852268] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.853097] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.853868] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.854910] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.855109] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.856313] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.857025] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.857866] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   39.858367] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.061713] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.062173] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.062179] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.062601] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.063401] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.064229] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.064504] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.064827] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.065898] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   47.066097] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.525037] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.525249] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.525629] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.527008] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.527171] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.528363] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.529241] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.529728] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.531955] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   54.532279] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.783880] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.784215] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.784672] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.785381] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.785720] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.786308] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.787699] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.787896] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.789648] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   63.790159] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.203776] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.204963] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.206018] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.206803] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.209343] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.209941] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.211248] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.212114] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.213135] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   69.213548] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.296289] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.296496] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.296699] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.297824] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.297978] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.299500] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.300955] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.301456] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.304577] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   74.304935] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.373328] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.374491] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.374982] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.377215] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.377550] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.378422] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.378906] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.379628] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.380120] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   79.380288] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.920665] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.920672] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.920676] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.920680] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.921144] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.921406] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.921769] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.923299] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.924510] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   90.924513] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.813946] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.813956] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.813962] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.813967] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.814706] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.814713] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.814794] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.814884] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.815213] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[   97.816101] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.822413] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.822419] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.822423] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.822426] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.822840] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.823164] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.823580] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.823856] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.833017] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  102.833072] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.740256] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.740267] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.740274] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.740280] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.741600] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.742308] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.743827] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.745297] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.746837] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.
+[  108.747815] frecon[347]: Term ESC image_load_image_from_file /etc/screens/glyphs/white/32.png failed: 2:No such file or directory.

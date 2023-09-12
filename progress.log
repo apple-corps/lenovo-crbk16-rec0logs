@@ -1,0 +1,362 @@
++ progress_bar
++ local 'percent='
++ show_progress_bar 0 1000 0x3F4042
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 1000 0 1000
++ local 'val=1000'
++ local 'min=0'
++ local 'max=1000'
++ '[' 1000 -lt 0 ]
++ '[' 1000 -gt 1000 ]
++ echo 1000
++ range_right=1000
++ local 'color=0x3F4042'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=1000'
++ '[' 1000 -le 0 ]
++ local 'offset_x=0'
++ local 'size_x=1601'
++ showbox 0 0 1601 4 0x3F4042
++ local 'offset_x=0'
++ local 'offset_y=0'
++ local 'size_x=1601'
++ local 'size_y=4'
++ local 'color=0x3F4042'
++ '[' 1601 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x3F4042 1601,4 0,0 1
++ read -r percent
++ show_progress_bar 0 100 0x8AB4F8
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 100 0 1000
++ local 'val=100'
++ local 'min=0'
++ local 'max=1000'
++ '[' 100 -lt 0 ]
++ '[' 100 -gt 1000 ]
++ echo 100
++ range_right=100
++ local 'color=0x8AB4F8'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=100'
++ '[' 100 -le 0 ]
++ local 'offset_x=-720'
++ local 'size_x=161'
++ showbox -720 0 161 4 0x8AB4F8
++ local 'offset_x=-720'
++ local 'offset_y=0'
++ local 'size_x=161'
++ local 'size_y=4'
++ local 'color=0x8AB4F8'
++ '[' 161 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x8AB4F8 161,4 -720,0 1
++ read -r percent
++ show_progress_bar 0 250 0x8AB4F8
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 250 0 1000
++ local 'val=250'
++ local 'min=0'
++ local 'max=1000'
++ '[' 250 -lt 0 ]
++ '[' 250 -gt 1000 ]
++ echo 250
++ range_right=250
++ local 'color=0x8AB4F8'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=250'
++ '[' 250 -le 0 ]
++ local 'offset_x=-600'
++ local 'size_x=401'
++ showbox -600 0 401 4 0x8AB4F8
++ local 'offset_x=-600'
++ local 'offset_y=0'
++ local 'size_x=401'
++ local 'size_y=4'
++ local 'color=0x8AB4F8'
++ '[' 401 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x8AB4F8 401,4 -600,0 1
++ read -r percent
++ show_progress_bar 0 370 0x8AB4F8
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 370 0 1000
++ local 'val=370'
++ local 'min=0'
++ local 'max=1000'
++ '[' 370 -lt 0 ]
++ '[' 370 -gt 1000 ]
++ echo 370
++ range_right=370
++ local 'color=0x8AB4F8'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=370'
++ '[' 370 -le 0 ]
++ local 'offset_x=-504'
++ local 'size_x=593'
++ showbox -504 0 593 4 0x8AB4F8
++ local 'offset_x=-504'
++ local 'offset_y=0'
++ local 'size_x=593'
++ local 'size_y=4'
++ local 'color=0x8AB4F8'
++ '[' 593 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x8AB4F8 593,4 -504,0 1
++ read -r percent
++ show_progress_bar 0 490 0x8AB4F8
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 490 0 1000
++ local 'val=490'
++ local 'min=0'
++ local 'max=1000'
++ '[' 490 -lt 0 ]
++ '[' 490 -gt 1000 ]
++ echo 490
++ range_right=490
++ local 'color=0x8AB4F8'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=490'
++ '[' 490 -le 0 ]
++ local 'offset_x=-408'
++ local 'size_x=785'
++ showbox -408 0 785 4 0x8AB4F8
++ local 'offset_x=-408'
++ local 'offset_y=0'
++ local 'size_x=785'
++ local 'size_y=4'
++ local 'color=0x8AB4F8'
++ '[' 785 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x8AB4F8 785,4 -408,0 1
++ read -r percent
++ show_progress_bar 0 620 0x8AB4F8
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 620 0 1000
++ local 'val=620'
++ local 'min=0'
++ local 'max=1000'
++ '[' 620 -lt 0 ]
++ '[' 620 -gt 1000 ]
++ echo 620
++ range_right=620
++ local 'color=0x8AB4F8'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=620'
++ '[' 620 -le 0 ]
++ local 'offset_x=-304'
++ local 'size_x=993'
++ showbox -304 0 993 4 0x8AB4F8
++ local 'offset_x=-304'
++ local 'offset_y=0'
++ local 'size_x=993'
++ local 'size_y=4'
++ local 'color=0x8AB4F8'
++ '[' 993 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x8AB4F8 993,4 -304,0 1
++ read -r percent
++ show_progress_bar 0 790 0x8AB4F8
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 790 0 1000
++ local 'val=790'
++ local 'min=0'
++ local 'max=1000'
++ '[' 790 -lt 0 ]
++ '[' 790 -gt 1000 ]
++ echo 790
++ range_right=790
++ local 'color=0x8AB4F8'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=790'
++ '[' 790 -le 0 ]
++ local 'offset_x=-168'
++ local 'size_x=1265'
++ showbox -168 0 1265 4 0x8AB4F8
++ local 'offset_x=-168'
++ local 'offset_y=0'
++ local 'size_x=1265'
++ local 'size_y=4'
++ local 'color=0x8AB4F8'
++ '[' 1265 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x8AB4F8 1265,4 -168,0 1
++ read -r percent
++ show_progress_bar 0 970 0x8AB4F8
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 970 0 1000
++ local 'val=970'
++ local 'min=0'
++ local 'max=1000'
++ '[' 970 -lt 0 ]
++ '[' 970 -gt 1000 ]
++ echo 970
++ range_right=970
++ local 'color=0x8AB4F8'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=970'
++ '[' 970 -le 0 ]
++ local 'offset_x=-24'
++ local 'size_x=1553'
++ showbox -24 0 1553 4 0x8AB4F8
++ local 'offset_x=-24'
++ local 'offset_y=0'
++ local 'size_x=1553'
++ local 'size_y=4'
++ local 'color=0x8AB4F8'
++ '[' 1553 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x8AB4F8 1553,4 -24,0 1
++ read -r percent
++ show_progress_bar 0 1000 0x8AB4F8
++ local range_left
++ local range_right
++ clamp 0 0 1000
++ local 'val=0'
++ local 'min=0'
++ local 'max=1000'
++ '[' 0 -lt 0 ]
++ '[' 0 -gt 1000 ]
++ echo 0
++ range_left=0
++ clamp 1000 0 1000
++ local 'val=1000'
++ local 'min=0'
++ local 'max=1000'
++ '[' 1000 -lt 0 ]
++ '[' 1000 -gt 1000 ]
++ echo 1000
++ range_right=1000
++ local 'color=0x8AB4F8'
++ local 'progress_height=4'
++ local 'full_width=1600'
++ local 'progress_length=1000'
++ '[' 1000 -le 0 ]
++ local 'offset_x=0'
++ local 'size_x=1601'
++ showbox 0 0 1601 4 0x8AB4F8
++ local 'offset_x=0'
++ local 'offset_y=0'
++ local 'size_x=1601'
++ local 'size_y=4'
++ local 'color=0x8AB4F8'
++ '[' 1601 -lt 1 ]
++ '[' 4 -lt 1 ]
++ rtl
++ '[' en-US '=' ar ]
++ '[' en-US '=' fa ]
++ '[' en-US '=' he ]
++ printf '\033]box:color=%s;size=%s;offset=%s;scale=%d\033\' 0x8AB4F8 1601,4 0,0 1
++ read -r percent
